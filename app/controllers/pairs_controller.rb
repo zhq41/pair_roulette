@@ -77,7 +77,8 @@ class PairsController < ApplicationController
     members = "#{params[:members]}".delete("{").delete("}")
     members = members.split(",")
     @pairs = Pair.where("members=? OR members =?", "#{params[:members]}", "{#{members[1]},#{members[0]}}")
-
+    @nama1 = Member.find(members[0]).name
+    @nama2 = Member.find(members[1]).name
   end
 
 
