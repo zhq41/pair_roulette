@@ -1,0 +1,37 @@
+<%- model_class = Pair -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Pair</th>
+      <% @member1.each do |m| %>
+        <th class="warning"><%= m.name %></th>
+    <% end %>
+    </tr>
+  </thead>
+  <tbody>
+  <% @member1.each do |m1|%>
+    <%@y=0 %>
+  <tr>
+    <td class="success" >
+      <%= m1.name%>
+    </td>
+    <% @member2.each do |m2|%>
+      <td>
+      <% if @x > @y %>
+        <%= link_to history_path(:members => "{#{m2.id}, #{m1.id}}") do %>
+        <%= @pairs.where(members: "{#{m1.id}, #{m2.id}}").count + @pairs.where(members: "{#{m2.id}, #{m1.id}}").count%>
+        <%end%>
+      <%elsif @x == @y %>
+        <%= @pairs.where(members: "{#{m1.id}, #{m2.id}}").count %>
+      <%end%>
+      </td>
+      <% @y = @y+1%>
+  <% end %>
+</tr>
+<%@x = @x+1%>
+<% end %>
+  </tbody>
+</table>
