@@ -1,0 +1,42 @@
+<div>
+  <h1>Random Roulette</h1>
+</div>
+<div class="panel panel-info">
+  <form>
+    <table class="table table-striped table-bordered table-hover">
+      <tr>
+        <th>?</th>
+        <th colspan="2">Team</th>
+        <th>Description</th>
+      </tr>
+      <% puts @cache%>
+      <% @t_pair.times do %>
+        <% @total.times do%>
+        <%@member.shuffle%>
+    <%end%>
+      <% if @total >= 2 %>
+        <tr>
+        <td class="danger">PAIR</td>
+        <td class ="info"><%= @member[0].name%></td>
+        <% @cache << @member[0].name%>
+        <% @member = @member.drop(1)%>
+        <td class ="warning"><%= @member[0].name%></td>
+        <% @member = @member.drop(1)%>
+        <td><%= @description%></td>
+      </tr>
+      <% @total = @total-2%>
+    <% else %>
+        <tr>
+        <td class="danger">SOLO</td>
+        <td colspan="2" class="success"><%= @member[0].name%></td>
+        <% @member = @member.drop(1)%>
+        <td><%= @description%></td>
+      </tr>
+      <% @total = @total-1%>
+    <%end%>
+    <%end%>
+    </table>
+  <%= button_to "Roulette Again !", new_roulette_path %>
+</form>
+</div>
+

@@ -1,18 +1,23 @@
 <%- model_class = Pair -%>
 <div class="page-header">
-  <h1>Pairs [<%= @nama1+" "+@nama2 %>]</h1>
+  <h1>Pairs History</h1>
+  <% if(@nama1 == @nama2)%>
+    <h3>Solo : <%= @nama1 %></h3>
+  <% else %>
+    <h3><%= @nama1+" and "+@nama2 %></h3>
+    <%end%>
 </div>
-<table class="table table-striped">
+<table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%= model_class.human_attribute_name(:details) %></th>
+      <th>Date</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <% @pairs.each do |pair| %>
       <tr>
-        <td><%= pair.created_at %></td>
+        <td><%=l pair.created_at.localtime.to_datetime %></td>
         <td><%= pair.details %></td>
       </tr>
     <% end %>
