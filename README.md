@@ -6,19 +6,18 @@ Team : Ardhan, Iqbal, Ziaul
 Goal : Create Roulette Pair for Pair Programmer Team
 
 Result Inception :
-- Hardcoded Member List
-- Simple Pair Form
-- View the Charts
-- Crud Member
-- Assign Member to Stories
-- Crud Story
-- Pairing History All Member
-- Swap Member
-- Roulette
-- Save Rotation
-- Look/Pin User to Story
-- Animated Rotation
-
+- [__%] Hardcoded Member List
+- [__%] Simple Pair Form
+- [__%] View the Charts
+- [__%] Crud Member
+- [__%] Assign Member to Stories
+- [__%] Crud Story
+- [__%] Pairing History All Member
+- [__%] Swap Member
+- [__%] Roulette
+- [__%] Save Rotation
+- [__%] Look/Pin User to Story
+- [__%] Animated Rotation
 
 
 
