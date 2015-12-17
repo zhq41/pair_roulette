@@ -1,0 +1,32 @@
+<div>
+  <h1>Swap Pairs</h1>
+</div>
+<div class="panel panel-info">
+  <%= form_tag result_roulette_path %>
+  <table class="table table-striped table-bordered table-hover">
+    <tr>
+      <th>?</th>
+      <th colspan="2">Team</th>
+      <th> Description </th>
+    </tr>
+    <% @pairs.each do |p|%>
+      <tr class="success">
+      <td >
+        <%= collection_select(:pair, "[#{@counter}][member1]", Member.all,:id,:name, {selected: p.members[0]}, { onchange: "change_member()" }) %>
+      </td>
+      <td>
+        <%= collection_select(:pair, "[#{@counter}][member2]", Member.all,:id,:name, {selected: p.members[1]}) %>
+      </td>
+      <td ><%= p.status%></td>
+      <td ><%= text_field_tag "pair[#{@counter}][details]", p.details %> </td>
+    </tr>
+    <%@counter = @counter+1%>
+  <%end%>
+
+  </table>
+  <%= submit_tag %>
+  <%= button_to "Roulette Again !", new_roulette_path %>
+</form>
+  </div>
+
+

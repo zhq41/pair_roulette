@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   resources :pairs
   resources :members
 
-  get 'roulette' => 'pairs#roulette', as: :roulette
+  get 'roulette/pair/table' => 'pairs#roulette', as: :roulette
   get 'roulette/history/:members' => 'pairs#history', as: :history
-  get 'coba' => 'coba#index', as: :coba
-  get 'coba/roulette' => 'coba#roulette', as: :new_roulette
-  post 'coba/result/' => 'coba#result', as: :result_coba
+  get 'roulette' => 'roulettes#new', as: :new_roulette
+  post 'roulette/result/' => 'roulettes#result', as: :result_roulette
+  get 'roulette/swap' => 'roulettes#swap', as: :roulette_swap
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

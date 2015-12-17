@@ -15,3 +15,9 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+
+function change_member(){
+  $("tr.success").removeClass("success").addClass("danger");
+  $("select").val(1);
+}
+
