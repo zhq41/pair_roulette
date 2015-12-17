@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'roulette/history/:members' => 'pairs#history', as: :history
   get 'coba' => 'coba#index', as: :coba
   get 'coba/roulette' => 'coba#roulette', as: :new_roulette
+  post 'coba/result/' => 'coba#result', as: :result_coba
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
