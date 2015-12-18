@@ -31,6 +31,7 @@ class RoulettesController < ApplicationController
 
   def result
     @pairs = params[:pair]
+    puts params[:pair]
     Pair.update_all status: "done"
     @pairs.each do |index, pair|
       new_pair = Pair.new
@@ -39,12 +40,20 @@ class RoulettesController < ApplicationController
       new_pair.status = "active"
       new_pair.save
     end
-    redirect_to roulette_path
+    # redirect_to roulette_path
   end
 
   def swap
     @pairs = Pair.where(status: "active")
     @counter = 0
+    @formasi = []
+    i = 0
+    @pairs.each do |p|
+      @formasi << ["pair_[#{i}][member1]",  p.members[0].to_i]
+      @formasi << ["pair_[#{i}][member2]",  p.members[1].to_i]
+      i = i+1
+    end
+    @formasi =  @formasi.to_json
   end
 
   private

@@ -12,21 +12,21 @@
     <% @pairs.each do |p|%>
       <tr class="success">
       <td >
-        <%= collection_select(:pair, "[#{@counter}][member1]", Member.all,:id,:name, {selected: p.members[0]}, { onchange: "change_member()" }) %>
+        <%= collection_select(:pair, "[#{@counter}][member1]", Member.all,:id,:name, {selected: p.members[0]}, { onchange: "change_member(#{p.members[0]}, 'pair_[#{@counter}][member1]')" }) %>
       </td>
       <td>
-        <%= collection_select(:pair, "[#{@counter}][member2]", Member.all,:id,:name, {selected: p.members[1]}) %>
+        <%= collection_select(:pair, "[#{@counter}][member2]", Member.all,:id,:name, {selected: p.members[1]}, { onchange: "change_member(#{p.members[1]}, 'pair_[#{@counter}][member2]')" }) %>
       </td>
       <td ><%= p.status%></td>
       <td ><%= text_field_tag "pair[#{@counter}][details]", p.details %> </td>
     </tr>
     <%@counter = @counter+1%>
   <%end%>
-
   </table>
   <%= submit_tag %>
-  <%= button_to "Roulette Again !", new_roulette_path %>
 </form>
   </div>
 
+  <div id="data-member" data-member="<%=@formasi%>">
+  </div>
 
