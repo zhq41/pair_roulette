@@ -35,7 +35,7 @@ function change_member(value, position){
       members[counter][1] = value;
      // alert(members[counter][1]);
     }
-    counter=counter+1;;
+    counter=counter+1;
   });
 }
 

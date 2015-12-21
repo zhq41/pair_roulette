@@ -1,7 +1,8 @@
 FactoryGirl.define do
   factory :pair do
-    members "MyString"
-details "MyString"
+    members [1,2]
+    details "MyString"
+    status "done"
   end
 
 end
